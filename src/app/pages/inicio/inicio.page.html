@@ -1,0 +1,34 @@
+<ion-header>
+    <ion-toolbar class="color-principal">
+        <ion-title class="ion-text-center">Skeleton-App</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+    <ion-text>
+        <h2 class="ion-text-center">Bienvenido {{ inicioUsuario }}</h2>
+        <p>Modifica tus datos:</p>
+    </ion-text>
+
+    <ion-item>
+        <ion-input label="Nombre(s):"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-input label="Apellidos:"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-input label="Run:"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-select>
+            <div slot="label">Nivel de estudios:</div>
+            <ion-select-option id="nivel1">Tecnico</ion-select-option>
+            <ion-select-option id="nivel2">Universitario</ion-select-option>
+            <ion-select-option id="nivel3">Postgrado</ion-select-option>
+        </ion-select>
+    </ion-item>
+
+</ion-content>
