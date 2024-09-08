@@ -10,8 +10,10 @@ export class InicioPage implements OnInit {
 
   inicioUsuario: string = "";
   inicioContrasena: string = "";
-  inicioRun: number = 0
-  inicioEstudios: string = "";
+  inicioPatente: string = "";
+  inicioMarca: string = "";
+  inicioModelo: string ="";
+  inicioTipo : string = "";
 
   constructor(private activeRoute: ActivatedRoute) { 
 
@@ -25,7 +27,19 @@ export class InicioPage implements OnInit {
   }
 
   ngOnInit() {
-    
+    console.log(this.inicioUsuario);
+    console.log(this.inicioContrasena);
+  }
+
+  valorTipovehiculo(event: any){
+    this.inicioTipo = event.detail.value;
+  }
+
+  mostrarDatos(){
+    console.log(this.inicioPatente);
+    console.log(this.inicioMarca);
+    console.log(this.inicioModelo);
+    console.log(this.inicioTipo);
   }
 
 }

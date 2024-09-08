@@ -7,28 +7,30 @@
 <ion-content class="ion-padding">
     <ion-text>
         <h2 class="ion-text-center">Bienvenido {{ inicioUsuario }}</h2>
-        <p>Modifica tus datos:</p>
+        <p>Registro de vehiculo:</p>
     </ion-text>
 
     <ion-item>
-        <ion-input label="Nombre(s):"></ion-input>
+        <ion-input label="Patente:" maxlength="6" [(ngModel)]="inicioPatente"></ion-input>
     </ion-item>
 
     <ion-item>
-        <ion-input label="Apellidos:"></ion-input>
+        <ion-input label="Marca:" [(ngModel)]="inicioMarca"></ion-input>
     </ion-item>
 
     <ion-item>
-        <ion-input label="Run:"></ion-input>
+        <ion-input label="Modelo" [(ngModel)]="inicioModelo"></ion-input>
     </ion-item>
 
     <ion-item>
-        <ion-select>
-            <div slot="label">Nivel de estudios:</div>
-            <ion-select-option id="nivel1">Tecnico</ion-select-option>
-            <ion-select-option id="nivel2">Universitario</ion-select-option>
-            <ion-select-option id="nivel3">Postgrado</ion-select-option>
+        <ion-select (ionChange)="valorTipovehiculo($event)">
+            <div slot="label">Tipo de vehiculo:</div>
+            <ion-select-option id="nivel1">Automovil</ion-select-option>
+            <ion-select-option id="nivel2">Station Wagon</ion-select-option>
+            <ion-select-option id="nivel3">Motocicleta</ion-select-option>
         </ion-select>
     </ion-item>
+
+    <ion-button class="color-principal ion-margin-top" expand="full" (click)="mostrarDatos()">Mostrar datos</ion-button>
 
 </ion-content>

@@ -20,6 +20,7 @@ export class LoginPage implements OnInit {
   }
 
   validarCredenciales(){
+
     let navigationExtras: NavigationExtras = {
       queryParams : {
         usuario: this.loginUsuario,
