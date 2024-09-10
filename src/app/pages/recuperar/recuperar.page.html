@@ -1,13 +1,21 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>recuperar</ion-title>
+<ion-header>
+  <ion-toolbar class="color-principal">
+    <ion-title class="ion-text-center">Skeleton-App</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">recuperar</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-padding">
+  <ion-img src="assets/images/olvidar-clave.svg"></ion-img>
+
+  <ion-text>
+    <h2 class="ion-text-center">Recuperar Contrasena</h2>
+    <p>Ingresa tu correo:</p>
+  </ion-text>
+
+  <ion-item>
+      <ion-icon name="mail-outline"></ion-icon>
+      <ion-input label="Correo" label-placement="floating" fill="solid" class="ion-margin-start"></ion-input>
+  </ion-item>
+
+  <ion-button class="color-principal" expand="full"></ion-button>
 </ion-content>
