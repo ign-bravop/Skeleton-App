@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
 import { AnimationController, Animation } from '@ionic/angular';
+import { DbService } from 'src/app/services/db.service';
+
 
 @Component({
   selector: 'app-login',
@@ -12,23 +14,23 @@ export class LoginPage implements OnInit {
   loginUsuario: string = "";
   loginContrasena: string = "";
   animation!: Animation;
+  canActivate: string = "";
 
-  constructor(private animationController: AnimationController, private router: Router) { }
+  constructor(private animationController: AnimationController, private router: Router, private dbService: DbService) { }
 
   ngOnInit() {
     this.animacionTexto();
   }
 
-  validarCredenciales(){
-
-    let navigationExtras: NavigationExtras = {
-      queryParams : {
-        usuario: this.loginUsuario,
-        contrasena: this.loginContrasena
-      }
+  async validarCredenciales(){
+    const usuario = await this.dbService.get('usuario1')
+    if(usuario[0] == this.loginUsuario && usuario[1] == this.loginContrasena){
+      //console.log('Dirigirse al login')
+      this.canActivate = "1";
+      this.dbService.canActivate(this.canActivate);
+    } else {
+      console.log('Error de usuario o contrasena')
     }
-
-    this.router.navigate(['/inicio'], navigationExtras);
   }
 
   animacionTexto(){

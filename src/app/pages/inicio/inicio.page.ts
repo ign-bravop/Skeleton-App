@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { DbService } from 'src/app/services/db.service';
 
 @Component({
   selector: 'app-inicio',
@@ -15,31 +16,24 @@ export class InicioPage implements OnInit {
   inicioModelo: string ="";
   inicioTipo : string = "";
 
-  constructor(private activeRoute: ActivatedRoute) { 
-
-    
-    this.activeRoute.queryParams.subscribe(params => {
-      if (params['usuario']){
-        this.inicioUsuario = params['usuario'];
-        this.inicioContrasena = params['contrasena'];
-      }
-    })
+  constructor(private activeRoute: ActivatedRoute, private dbServices: DbService) { 
   }
 
   ngOnInit() {
-    console.log(this.inicioUsuario);
-    console.log(this.inicioContrasena);
+  
   }
 
-  valorTipovehiculo(event: any){
-    this.inicioTipo = event.detail.value;
+
+  guardarDatos(){
+    let registro = [this.inicioPatente, this.inicioMarca, this.inicioModelo, this.inicioTipo];
+    this.dbServices.set('registro1', registro)
   }
 
-  mostrarDatos(){
-    console.log(this.inicioPatente);
-    console.log(this.inicioMarca);
-    console.log(this.inicioModelo);
-    console.log(this.inicioTipo);
+  limpiarDatos(){
+    this.inicioPatente = "";
+    this.inicioMarca = "";
+    this.inicioModelo = "";
+    this.inicioTipo = "";
   }
 
 }

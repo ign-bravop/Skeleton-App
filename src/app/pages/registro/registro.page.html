@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar class="color-principal">
+    <ion-title class="ion-text-center">Skeleton-App</ion-title>
+  </ion-toolbar>
+</ion-header>
+  
+<ion-content class="ion-padding">
+  <ion-img src="assets/images/registroUsuario.svg"></ion-img>
+  
+  <ion-item class="ion-margin-top">
+    <ion-input label="Usuario:" [(ngModel)]="registroUsuario"></ion-input>
+  </ion-item>
+
+  <ion-item class="ion-margin-top">
+    <ion-input label="Contrasena:" type="password" [(ngModel)]="registroContrasena"></ion-input>
+  </ion-item>
+
+  <ion-button class="color-principal ion-margin-top" expand="full" (click)="registrarUsuario()">Registrar</ion-button>
+</ion-content>

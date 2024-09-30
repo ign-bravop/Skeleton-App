@@ -23,16 +23,16 @@
     </ion-item>
 
     <ion-item>
-        <ion-select (ionChange)="valorTipovehiculo($event)">
+        <ion-select [(ngModel)]="inicioTipo">
             <div slot="label">Tipo de vehiculo:</div>
-            <ion-select-option id="nivel1">Automovil</ion-select-option>
-            <ion-select-option id="nivel2">Station Wagon</ion-select-option>
-            <ion-select-option id="nivel3">Motocicleta</ion-select-option>
+            <ion-select-option value="Automovil">Automovil</ion-select-option>
+            <ion-select-option value="Station Wagon">Station Wagon</ion-select-option>
+            <ion-select-option value="Motocicleta">Motocicleta</ion-select-option>
         </ion-select>
     </ion-item>
 
-    <ion-button class="color-principal" (click)="mostrarDatos()">Mostrar datos</ion-button>
-    <ion-button class="color-principal" expand="block">Limpiar campos</ion-button>
+    <ion-button class="color-principal ion-margin-top" expand="full" (click)="guardarDatos()">Registrar</ion-button>
+    <ion-button class="color-principal ion-margin-top" expand="full" (click)="limpiarDatos()">Limpiar campos</ion-button>
     
 
 </ion-content>
