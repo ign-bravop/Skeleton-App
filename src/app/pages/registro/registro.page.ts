@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Storage } from '@ionic/storage';
 import { DbService } from 'src/app/services/db.service';
 
 @Component({
@@ -9,18 +10,21 @@ import { DbService } from 'src/app/services/db.service';
 })
 export class RegistroPage implements OnInit {
 
-  registroUsuario: string = "";
-  registroContrasena: string = ""
+  usuario: any = {
+    correo: "",
+    contrasena: ""
+  }
 
-  constructor(private router: Router, private dbService: DbService) { }
+  id_usuario: string = "";
+
+  constructor(private router: Router, private dbService: DbService, private storage: Storage) { }
 
   ngOnInit() {
   }
 
-  registrarUsuario(){
-    let usuario = [this.registroUsuario, this.registroContrasena]
-    this.dbService.set('usuario1', usuario)
-    this.router.navigate(['/login'])
+  async registrarUsuario(){
+    this.dbService.set(this.usuario.correo, this.usuario.contrasena);
+    this.router.navigate(['/login']);
   }
 
 }

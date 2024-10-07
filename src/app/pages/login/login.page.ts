@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
-import { AnimationController, Animation } from '@ionic/angular';
+import { AnimationController, Animation, AlertController } from '@ionic/angular';
 import { DbService } from 'src/app/services/db.service';
 
 
@@ -14,22 +14,25 @@ export class LoginPage implements OnInit {
   loginUsuario: string = "";
   loginContrasena: string = "";
   animation!: Animation;
-  canActivate: string = "";
 
-  constructor(private animationController: AnimationController, private router: Router, private dbService: DbService) { }
+  constructor(private animationController: AnimationController, private router: Router, private dbService: DbService, private alertController: AlertController) { }
 
   ngOnInit() {
     this.animacionTexto();
   }
 
   async validarCredenciales(){
-    const usuario = await this.dbService.get('usuario1')
-    if(usuario[0] == this.loginUsuario && usuario[1] == this.loginContrasena){
-      //console.log('Dirigirse al login')
-      this.canActivate = "1";
-      this.dbService.canActivate(this.canActivate);
+    const contrasena = await this.dbService.get(this.loginUsuario)
+    if (contrasena === this.loginContrasena){
+      this.router.navigate(['/inicio']);
     } else {
-      console.log('Error de usuario o contrasena')
+      const alert = await this.alertController.create({
+        header: 'Error en inicio de sesion',
+        message: 'Usuario o contrasena incorrectos',
+        buttons: ['Volver']
+      });
+
+      await alert.present();
     }
   }
 

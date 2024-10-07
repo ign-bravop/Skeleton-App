@@ -8,11 +8,11 @@
   <ion-img src="assets/images/registroUsuario.svg"></ion-img>
   
   <ion-item class="ion-margin-top">
-    <ion-input label="Usuario:" [(ngModel)]="registroUsuario"></ion-input>
+    <ion-input label="Usuario:" [(ngModel)]="usuario.correo"></ion-input>
   </ion-item>
 
   <ion-item class="ion-margin-top">
-    <ion-input label="Contrasena:" type="password" [(ngModel)]="registroContrasena"></ion-input>
+    <ion-input label="Contrasena:" type="password" [(ngModel)]="usuario.contrasena"></ion-input>
   </ion-item>
 
   <ion-button class="color-principal ion-margin-top" expand="full" (click)="registrarUsuario()">Registrar</ion-button>
