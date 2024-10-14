@@ -23,10 +23,8 @@ export class InicioPage implements OnInit {
   
   }
 
-
-  guardarDatos(){
-    let registro = [this.inicioPatente, this.inicioMarca, this.inicioModelo, this.inicioTipo];
-    this.dbServices.set('registro1', registro)
+  almacenarVehiculo(){
+    this.dbServices.almacenarVehiculo(this.inicioPatente, this.inicioMarca, this.inicioModelo, this.inicioTipo);
   }
 
   limpiarDatos(){
