@@ -47,7 +47,7 @@ export class DbService {
   crearBD1(){
     this.platform.ready().then(() => {
       this.sqlite.create({
-        name: 'vehiculos',
+        name: 'vehiculo',
         location: 'default'
       }).then((db: SQLiteObject) => {
         db.executeSql('CREATE TABLE IF NOT EXISTS VEHICULO(PPU VARCHAR(6), MARCA VARCHAR(15), MODELO VARCHAR(15), TIPO VARCHAR(10))',[]).then(() => {
@@ -65,7 +65,7 @@ export class DbService {
   almacenarVehiculo(ppu: string, marca: string, modelo: string, tipo: string){
     this.platform.ready().then(() => {
       this.sqlite.create({
-        name: 'vehiculos',
+        name: 'vehiculo',
         location: 'default'
       }).then((db: SQLiteObject) => {
         db.executeSql('INSERT INTO VEHICULO VALUES(?, ?, ?, ?)',[ppu, marca, modelo, tipo]).then(() => {

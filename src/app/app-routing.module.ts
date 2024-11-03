@@ -29,6 +29,11 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
+    path: 'vehiculo',
+    redirectTo: 'vehiculo',
+    pathMatch: 'full'
+  },
+  {
     path: '**',
     redirectTo: 'e404',
     pathMatch: 'full'
@@ -54,6 +59,11 @@ const routes: Routes = [
     path: 'registro',
     loadChildren: () => import('./pages/registro/registro.module').then( m => m.RegistroPageModule)
   },
+  {
+    path: 'vehiculo',
+    loadChildren: () => import('./pages/vehiculo/vehiculo.module').then( m => m.VehiculoPageModule)
+  },
+
 
 
 ];

@@ -19,6 +19,8 @@ export class LoginPage implements OnInit {
 
   ngOnInit() {
     this.animacionTexto();
+    this.loginUsuario = "";
+    this.loginContrasena = "";
   }
 
   async validarCredenciales(){
